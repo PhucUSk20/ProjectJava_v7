@@ -5,11 +5,11 @@ First, You need create DATABASE
     CREATE DATABASE PROJECT;
     USE PROJECT;
 
-    CREATE TABLE ACCOUNT (
+    CREATE TABLE giangvien (
         ID INT IDENTITY(1,1) PRIMARY KEY,
-        USERNAME VARCHAR(255) NOT NULL,
-        PASSWORD VARCHAR(255) NOT NULL,
-        KIND VARCHAR(10) NOT NULL
+        username NCHAR(20) NOT NULL,
+        password NCHAR(20) NOT NULL,
+        email NCHAR(50) NOT NULL,
     );
 
     CREATE TABLE CLASS (
@@ -28,6 +28,9 @@ First, You need create DATABASE
     );
    
     CREATE TABLE STUDENT_LIST (
+        username NVARCHAR(255),
+        password NVARCHAR(255),
+        email NVARCHAR(255),
 	name_student NVARCHAR(255) ,
 	code_student NVARCHAR(255) PRIMARY KEY,
 	date_of_birth  DATE,
@@ -56,11 +59,10 @@ First, You need create DATABASE
     INSERT INTO CLASS (name_class, name_subject, background) VALUES ('K20-Fetel', 'Thiet ke SoC', '5');
     INSERT INTO CLASS (name_class, name_subject, background) VALUES ('K20-Fetel', 'TH lap trinh Java', '6');
 
- Insert data into the ACCOUNT table.
+ Insert data into the giangvien table.
 -----------------------------------------------------------------------
-    INSERT INTO ACCOUNT (USERNAME, PASSWORD, KIND) VALUES ('phuc', '123', 'admin');
-    INSERT INTO ACCOUNT (USERNAME, PASSWORD, KIND) VALUES ('khanh','456', 'admin');
-    INSERT INTO ACCOUNT (USERNAME, PASSWORD, KIND) VALUES ('nghia','789', 'teacher');
+    INSERT INTO giangvien (username, password, email) VALUES ('phuc', '123', 'thanhphuc104hd@gmail.com');
+    INSERT INTO giangvien (username, password, email) VALUES ('khanh', '456', 'titanthophap2@gmail.com');
 
 Then you need to adjust the IP of the network you are using as your local network, your SQLServer account username and password in the SQLConnection.java and SQLConnectionInBackGround.java files. 
 -----------------------------------------------------------------------
