@@ -3,6 +3,7 @@
     import android.content.Context;
     import android.content.Intent;
     import android.os.Bundle;
+    import android.util.Log;
     import android.view.Menu;
     import android.view.MenuItem;
     import android.view.View;
@@ -54,13 +55,13 @@
         private Connection connection;
         private static final int ADD_ACCOUNT_REQUEST = 1;
         private TextView role, toolbar;
-        private TextView adminName;
+        private TextView studentName;
         private static String codeStudent;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.class_list_activity);
+            setContentView(R.layout.activity_student);
 
             // Tìm thẻ toolbar và TextView có id là toolbarTitle2
             Toolbar toolbar = findViewById(R.id.toolbar_layout);
@@ -70,7 +71,7 @@
 
             context = StudentActivity.this;
 
-
+            connection = SQLConnection.getConnection();
             drawer = findViewById(R.id.drawer_layout);
             listView = findViewById(R.id.listView);
             expandable_navigation = findViewById(R.id.expandable_navigation);
@@ -81,9 +82,11 @@
             Intent intent = getIntent();
             if (intent.hasExtra("CODE_STUDENT_KEY")) {
                 codeStudent = intent.getStringExtra("CODE_STUDENT_KEY");
+                Log.d("codeStuent", codeStudent);
                 String username = getUsernameFromCodeStudent(codeStudent);
-                adminName = header.findViewById(R.id.adminName);
-              //  adminName.setText(username.toUpperCase());
+                Log.d("UserStudent", username);
+                studentName = header.findViewById(R.id.student_name);
+                studentName.setText(username.toUpperCase());
             }
             navigationView.setNavigationItemSelectedListener(this);
 
@@ -316,14 +319,14 @@
             if (connection != null) {
                 try {
                     // Truy vấn SQL để lấy 'username' từ 'code_student'
-                    String query = "SELECT username FROM STUDENT_LIST WHERE code_student = ?";
+                    String query = "SELECT name_student FROM STUDENT_LIST WHERE code_student = ?";
                     PreparedStatement preparedStatement = connection.prepareStatement(query);
                     preparedStatement.setString(1, codeStudent);
                     ResultSet resultSet = preparedStatement.executeQuery();
 
                     // Kiểm tra xem có dữ liệu trả về không
                     if (resultSet.next()) {
-                        username = resultSet.getString("username");
+                        username = resultSet.getString("name_student");
                     }
 
                     resultSet.close();
@@ -331,8 +334,9 @@
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+            } else {
+                Log.d("Unconnected", String.valueOf(connection));
             }
-
             return username;
         }
 

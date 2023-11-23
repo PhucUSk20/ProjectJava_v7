@@ -87,7 +87,8 @@
             android:exported="false" />
         <activity
             android:name=".UIStudent.StudentActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTask" />
         <activity
             android:name=".UIStudent.StudentListForStudent"
             android:exported="false" />
