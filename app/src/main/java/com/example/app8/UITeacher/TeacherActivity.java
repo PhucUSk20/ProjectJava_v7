@@ -141,7 +141,7 @@ public class TeacherActivity extends AppCompatActivity
                         if (id == 0) {
                             //Home Menu
                             Common.showToast(context, "Home Select");
-                            Intent intent = new Intent(v.getContext(), AdminActivity.class);
+                            Intent intent = new Intent(v.getContext(), TeacherActivity.class);
                             startActivity(intent);
                             drawer.closeDrawer(GravityCompat.START);
                         } else if (id == 1){

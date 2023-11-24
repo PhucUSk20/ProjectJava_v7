@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.app8.Login.AdminLogin;
 import com.example.app8.R;
 import com.example.app8.SQLServer.SQLConnection;
 
@@ -36,6 +37,7 @@ public class StudentListActivity extends AppCompatActivity {
     private Button addButton;
     private Button deleteButton;
     private Connection connection;
+    private ImageView backBtn;
 
     private boolean isMultipleChoiceMode = false;
 
@@ -55,6 +57,7 @@ public class StudentListActivity extends AppCompatActivity {
         deleteButton = findViewById(R.id.deleteButton);
         ImageView icon1 = findViewById(R.id.icon1);
         ImageView icon2 = findViewById(R.id.icon2);
+        backBtn = findViewById(R.id.backButton);
         studentList = new ArrayList<>();
         imageDataList = new ArrayList<>(); // Khởi tạo danh sách dữ liệu hình ảnh
         adapter = new CustomStudentListAdapter(this, studentList, imageDataList); // Sử dụng CustomStudentListAdapter
@@ -70,6 +73,13 @@ public class StudentListActivity extends AppCompatActivity {
         // Lấy ID tài nguyên drawable từ tên
         int backgroundResId = context.getResources().getIdentifier(drawableName, "drawable", context.getPackageName());
         titleTextView.setBackgroundResource(backgroundResId);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudentListActivity.this, AdminActivity.class);
+                startActivity(intent);
+            }
+        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

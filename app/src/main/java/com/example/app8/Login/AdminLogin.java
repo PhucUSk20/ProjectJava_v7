@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -32,7 +33,7 @@ public class AdminLogin extends AppCompatActivity {
     int id = 123;
     private TextView textView,check1,check2;
     private EditText editText5, editText6;
-    private Button btndangnhap, back_admin;
+    private Button btndangnhap, back_admin, exit_admin;
     private Connection connection;
 
     private boolean isDialogShown = false;
@@ -50,6 +51,8 @@ public class AdminLogin extends AppCompatActivity {
         editText6 = findViewById(R.id.editText6);
         btndangnhap = findViewById(R.id.btndangnhap);
         back_admin = findViewById(R.id.back_admin);
+        exit_admin = findViewById(R.id.exit_admin);
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         connection = SQLConnection.getConnection();
@@ -144,7 +147,11 @@ public class AdminLogin extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
+
     public void comeback(View view) {
+        showDialog();
+    }
+    public void exit(View view) {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

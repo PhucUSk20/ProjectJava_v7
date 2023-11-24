@@ -25,6 +25,7 @@ import com.example.app8.UIAdmin.AdminActivity;
 import com.example.app8.UIAdmin.CustomStudentListAdapter;
 import com.example.app8.UIAdmin.RegisterActivity;
 import com.example.app8.UIAdmin.StudentInfo;
+import com.example.app8.UIAdmin.StudentListActivity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -45,6 +46,7 @@ public class StudentListForStudent extends AppCompatActivity {
     private boolean isMultipleChoiceMode = false;
 
     private final int ADD_STUDENT_REQUEST_CODE = 1;
+    private ImageView backBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,6 +58,8 @@ public class StudentListForStudent extends AppCompatActivity {
         connection = SQLConnection.getConnection();
         TextView titleTextView = findViewById(R.id.titleTextView);
         listView = findViewById(R.id.listView);
+        backBtn = findViewById(R.id.backButton);
+
         studentList = new ArrayList<>();
         imageDataList = new ArrayList<>(); // Khởi tạo danh sách dữ liệu hình ảnh
         adapter = new CustomStudentListAdapter(this, studentList, imageDataList); // Sử dụng CustomStudentListAdapter
@@ -71,6 +75,14 @@ public class StudentListForStudent extends AppCompatActivity {
         // Lấy ID tài nguyên drawable từ tên
         int backgroundResId = context.getResources().getIdentifier(drawableName, "drawable", context.getPackageName());
         titleTextView.setBackgroundResource(backgroundResId);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudentListForStudent.this, StudentActivity.class);
+                startActivity(intent);
+            }
+        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

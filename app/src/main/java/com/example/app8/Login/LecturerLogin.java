@@ -151,7 +151,6 @@ public class LecturerLogin extends AppCompatActivity {
         Intent intent = new Intent(LecturerLogin.this, AdminLogin.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
-
     }
     @Override
     public void onBackPressed() {

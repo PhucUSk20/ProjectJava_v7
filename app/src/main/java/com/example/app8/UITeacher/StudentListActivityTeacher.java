@@ -25,6 +25,7 @@ import com.example.app8.SQLServer.SQLConnection;
 import com.example.app8.UIAdmin.AdminActivity;
 import com.example.app8.UIAdmin.CustomStudentListAdapter;
 import com.example.app8.UIAdmin.StudentInfo;
+import com.example.app8.UIAdmin.StudentListActivity;
 
 import java.nio.ByteBuffer;
 import java.sql.Connection;
@@ -47,6 +48,7 @@ public class StudentListActivityTeacher extends AppCompatActivity {
     private boolean isMultipleChoiceMode = false;
 
     private final int ADD_STUDENT_REQUEST_CODE = 1;
+    private ImageView backBtn;
     public static HashMap<String, FaceClassifier.Recognition> registered = new HashMap<>();
     public static int classID;
 
@@ -62,6 +64,8 @@ public class StudentListActivityTeacher extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         imageButton = findViewById(R.id.imageButton);
         videoButton = findViewById(R.id.videoButton);
+        backBtn = findViewById(R.id.backButton);
+
         studentList = new ArrayList<>();
         imageDataList = new ArrayList<>(); // Khởi tạo danh sách dữ liệu hình ảnh
         adapter = new CustomStudentListAdapter(this, studentList, imageDataList); // Sử dụng CustomStudentListAdapter
@@ -78,6 +82,13 @@ public class StudentListActivityTeacher extends AppCompatActivity {
         // Lấy ID tài nguyên drawable từ tên
         int backgroundResId = context.getResources().getIdentifier(drawableName, "drawable", context.getPackageName());
         titleTextView.setBackgroundResource(backgroundResId);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudentListActivityTeacher.this, TeacherActivity.class);
+                startActivity(intent);
+            }
+        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
