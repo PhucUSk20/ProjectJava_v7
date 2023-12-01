@@ -536,9 +536,12 @@ public class CameraProcesser extends Activity implements CameraBridgeViewBase.Cv
                             String dateOfBirth = resultSet.getString("date_of_birth");
 
                             // Tiếp theo, kiểm tra xem `name` đã tồn tại trong bảng `ATTENDANCE` chưa
-                            String checkQuery = "SELECT COUNT(*) FROM ATTENDANCE WHERE name_student = ?";
+                            String checkQuery = "SELECT COUNT(*) FROM ATTENDANCE WHERE name_student = ? and attendance_date = ?";
                             PreparedStatement checkStatement = sqlConnection2.prepareStatement(checkQuery);
                             checkStatement.setString(1, name);
+                            // Chuyển đổi ngày giờ hiện tại thành kiểu dữ liệu DATE
+                            Date currentDate = new Date(Calendar.getInstance().getTime().getTime());
+                            checkStatement.setDate(2, currentDate);
                             ResultSet checkResultSet = checkStatement.executeQuery();
 
                             checkResultSet.next();
@@ -552,7 +555,7 @@ public class CameraProcesser extends Activity implements CameraBridgeViewBase.Cv
                                 preparedStatement.setString(2, codeStudent);
                                 preparedStatement.setString(3, dateOfBirth);
                                 // Chuyển đổi ngày giờ hiện tại thành kiểu dữ liệu DATE
-                                Date currentDate = new Date(Calendar.getInstance().getTime().getTime());
+                                currentDate = new Date(Calendar.getInstance().getTime().getTime());
 
                                 preparedStatement.setDate(4, currentDate); // Sử dụng setDate để thêm ngày giờ
                                 preparedStatement.setInt(5, classID);

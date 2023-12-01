@@ -7,11 +7,11 @@ import java.sql.SQLException;
 
 public class SQLConnectionInBackGround {
     private static final String TAG = "SQLConnection";
-    private static String ip = "192.168.1.8"; // Địa chỉ IP của máy chủ SQL Server
+    private static String ip = "192.168.1.2"; // Địa chỉ IP của máy chủ SQL Server
     private static String port = "1433"; // Cổng mặc định cho SQL Server
     private static String Classes = "net.sourceforge.jtds.jdbc.Driver"; // Lớp điều khiển JDBC cho SQL Server
     private static String database = "PROJECT"; // Tên cơ sở dữ liệu
-    private static String username = "Khanh"; // Tên đăng nhập SQL Server
+    private static String username = "phuc"; // Tên đăng nhập SQL Server
     private static String password = "123"; // Mật khẩu đăng nhập SQL Server
     private static String url = "jdbc:jtds:sqlserver://" + ip + ":" + port + "/" + database;
     private static Connection connection2 = null;
