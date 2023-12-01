@@ -38,7 +38,7 @@
             android:drawableStart="@drawable/baseline_person_24"
             android:drawableLeft="@drawable/baseline_person_24"
             android:padding="5dp"
-            android:hint="Tên đăng nhập" />
+            android:hint="Username" />
         <TextView
             android:id="@+id/check_username"
             android:layout_width="360dp"
@@ -52,7 +52,7 @@
             android:layout_width="360dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:hint="Mật khẩu"
+            android:hint="Password"
             android:drawableStart="@drawable/baseline_lock_24"
             android:drawableLeft="@drawable/baseline_lock_24"
             android:padding="5dp"

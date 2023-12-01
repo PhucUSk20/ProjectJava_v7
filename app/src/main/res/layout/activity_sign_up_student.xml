@@ -44,7 +44,7 @@
             android:drawableLeft="@drawable/baseline_person_24"
             android:padding="5dp"
             android:textColorHint="@color/black"
-            android:textSize="20dp"></EditText>
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/check_user"
@@ -53,7 +53,7 @@
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
             android:textColor="#EC1B0C"
-            android:textSize="15dp"></TextView>
+            android:textSize="15dp"/>
         <EditText
             android:id="@+id/code_student"
             android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
             android:drawableLeft="@drawable/baseline_email_24"
             android:padding="5dp"
             android:textColorHint="@color/black"
-            android:textSize="20dp"></EditText>
+            android:textSize="20dp"/>
         <TextView
             android:id="@+id/check_code"
             android:layout_width="300dp"
@@ -73,7 +73,7 @@
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
             android:textColor="#EC1B0C"
-            android:textSize="15dp"></TextView>
+            android:textSize="15dp"/>
         <EditText
             android:id="@+id/email_signup"
             android:layout_width="wrap_content"
@@ -85,7 +85,7 @@
             android:drawableLeft="@drawable/baseline_email_24"
             android:padding="5dp"
             android:textColorHint="@color/black"
-            android:textSize="20dp"></EditText>
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/check_email"
@@ -94,7 +94,7 @@
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
             android:textColor="#EC1B0C"
-            android:textSize="15dp"></TextView>
+            android:textSize="15dp"/>
 
         <EditText
             android:id="@+id/password_signup"
@@ -107,7 +107,7 @@
             android:drawableLeft="@drawable/baseline_lock_24"
             android:padding="5dp"
             android:textColorHint="@color/black"
-            android:textSize="20dp"></EditText>
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/check_pass"
@@ -116,7 +116,7 @@
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
             android:textColor="#E12012"
-            android:textSize="15dp"></TextView>
+            android:textSize="15dp"/>
 
         <EditText
             android:id="@+id/confirm_signup"
@@ -129,7 +129,7 @@
             android:drawableLeft="@drawable/baseline_check_circle_24"
             android:padding="5dp"
             android:textColorHint="@color/black"
-            android:textSize="20dp"></EditText>
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/check_confirm"
@@ -139,7 +139,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="1dp"
             android:textColor="#F11D0E"
-            android:textSize="15dp"></TextView>
+            android:textSize="15dp"/>
 
         <Button
             android:id="@+id/btnsignup"

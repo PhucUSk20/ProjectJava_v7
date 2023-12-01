@@ -65,7 +65,7 @@ public class ForgotPassword extends AppCompatActivity {
                 if (isValidUser(user)) {
                     try {
                         // Construct a parameterized query to retrieve the email for the given username
-                        String query = "SELECT email FROM giangvien WHERE username = ? UNION SELECT email FROM sinhvien WHERE username = ?";
+                        String query = "SELECT email FROM giangvien WHERE username = ? UNION SELECT email FROM STUDENT_LIST WHERE username = ?";
                         PreparedStatement preparedStatement = connect.prepareStatement(query);
                         preparedStatement.setString(1, user);
                         preparedStatement.setString(2, user);
@@ -143,7 +143,7 @@ public class ForgotPassword extends AppCompatActivity {
 
     private boolean isValidUser(String user) {
         boolean authenticated = false;
-        String query = "SELECT 1 FROM giangvien WHERE username = ? UNION SELECT 1 FROM sinhvien WHERE username = ?";
+        String query = "SELECT 1 FROM giangvien WHERE username = ? UNION SELECT 1 FROM STUDENT_LIST WHERE username = ?";
 
         try (
                 PreparedStatement preparedStatement = connect.prepareStatement(query)) {

@@ -141,7 +141,7 @@ public class ResetPassword extends DialogFragment {
                 }else{
 
                 try {
-                    String query = "SELECT password FROM giangvien WHERE username = ? UNION SELECT password FROM sinhvien WHERE username = ?";
+                    String query = "SELECT password FROM giangvien WHERE username = ? UNION SELECT password FROM STUDENT_LIST WHERE username = ?";
                     PreparedStatement preparedStatement = connection.prepareStatement(query);
                     preparedStatement.setString(1, user);
                     preparedStatement.setString(2, user);
@@ -158,7 +158,7 @@ public class ResetPassword extends DialogFragment {
                         int rowsUpdatedGiangVien = psGiangVien.executeUpdate();
                         psGiangVien.close();
 
-                        String updateSinhVien = "UPDATE sinhvien SET password = ? WHERE username = ?";
+                        String updateSinhVien = "UPDATE STUDENT_LIST SET password = ? WHERE username = ?";
                         PreparedStatement psSinhVien = connection.prepareStatement(updateSinhVien);
                         psSinhVien.setString(1, p_rs);
                         psSinhVien.setString(2, user);

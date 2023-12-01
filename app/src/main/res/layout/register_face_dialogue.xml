@@ -39,7 +39,7 @@
         android:id="@+id/dlg_DateOfBirth"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:hint="Day of Birth (yy-mm-dd)"
+        android:hint="Day of Birth (yyyy-mm-dd)"
         android:minHeight="48dp" />
     <Button
         android:id="@+id/button2"
